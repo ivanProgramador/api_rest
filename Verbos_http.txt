@@ -1,0 +1,8 @@
+
+Verbos http são as ações possiveis dentro de um requisição a um api 
+
+GET    -> FAZ UMA CONSULTA GERAL DE TODOS OS RECURSOS CADASTRADOS NA API / USADO EM -> LINKS 
+POST   -> CRIA UM NOVO DADO DENTRO DA API                                / USADO EM -> FORMS
+PUT    -> ATUALIZA UM ITEM POR COMPLETO                                  / USADO EM -> FORMS
+PATCH  -> EDITA DADOS DE UM ITEM ESPECIFICO DA API                       / USADO EM -> FORMS
+DELETE -> APAGA UM ITEM ESPECIFICO                                       / USADO EM -> FORMS E LINKS

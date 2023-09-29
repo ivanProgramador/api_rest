@@ -1,0 +1,81 @@
+Caracteristicas de uma api rest
+
+1 - Cliente servidor 
+    Uma api rest não tem interface grafica que consome dados dela mesma,
+    ou seja ela a totalemnte servidora. 
+
+2 - Stateless 
+    Uma api rest não pode guardar ddados do computador cliente ela so recebe 
+    a requisição, reponde e esquece o cliente, sem salvar nhenum dado da resuisição ou 
+    do cliente que pediu ela.
+
+3 - cacheavel
+    Deve sempre existir a possibilidade de trabalhar com cache para ecomizar processamento,
+    somente algumas trabalham com isso, mas deve sempre existeir essa possibilidade.
+
+4 - trabalhar com camadas
+    Mesmo que cliente tenha firewal ou qualçquer outro software de bloqueio isso não deve impedir 
+    o funcionamnto da api, toda e qualquer restrição só deve existir internamente no computador do
+    cliente se ele preferir configurar, mas a disponibilidade da api não pode ser afetada por conta 
+    disso.
+
+5 - interface uniforme e direta 
+
+    As rotas de um apasi devem ser uniformes e diretas 
+
+    EXEMPLO DE ROTAS NÃO UNIFORMES (ERRADAS)
+
+    GET    ->  http://meusite.com/getClientes/todos
+    DELETE ->  http://meusite.com/deletarClientes/peloId/1
+    PATH   ->  http://meusite.com/editar/peloId/1
+
+    EXEMPLO DE ROTAS UNIFORMES(CORRETAS)
+
+    GET    ->  http://meusite.com/clientes/
+    DELETE ->  http://meusite.com/cliente/1
+    PATH   ->  http://meusite.com/cliente/1
+
+6 - capacidade de retorno de arquivos de diversos tipos.  
+
+API REST 
+  É uma api que esta dentro dos 6 reuisitos mensionados acima
+
+API RESTIFULL 
+  É uma Api que além de atednder todos esses requisitos ainda tem mias recursos 
+  isso pode ser medido de forma bem prática 
+
+  1 - Nivel (Basica)
+      Usa uma unica rota pra manipular tudo  
+
+  2 - Nivel 
+      Ter uma rota diferente pra cada tipo de dado 
+      
+  3 - Nivel
+      Ter uma rota diferente pra cada tipo de dado para seprar os recursos, 
+      cada verbo http tem sua rota GET,PATH,PUT,DELETE para clientes, produtos, marcas
+      de forma isolada.
+
+  4 - Nivel Hypermedia Control 
+      Usando o HATEOAS além de obedecer todos sos requisitos acima ela ainda usa o HATEOAS 
+      para enviar um pequeno manual com suas rotas possiveis junto com a resposta da requisição.
+
+      'links':[
+         'type':'http://meusite.com/clientes/','Listar clientes tipo GET',
+         'type':'http://meusite.com/cliente/id','Consultar um cliente especifico GET',
+         'type':'http://meusite.com/clientes/','Apagar um cliente especifico tipo DELETE'
+         'type':'http://meusite.com/clientes/id','Atualizar um cliente  especifico tipo PUT'
+      ]
+
+    Se a API construida seguir todas essas regras ela pode ser considerada RESTFULL  
+
+
+
+
+      
+                
+
+    
+
+
+
+
