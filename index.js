@@ -61,6 +61,77 @@ app.get('/game/:id',(req,res)=>{
     }
 })
 
+app.post('/game',(req,res)=>{
+     
+    var {id,title,year,price} = req.body;
+
+       DB.games.push({
+           id:2020,
+           title,
+           year,
+           price
+       });
+
+    res.sendStatus(200);
+})
+
+app.delete('/game/:id',(req,res)=>{
+
+     if(isNaN(req.params.id)){
+        res.sendStatus(400);
+     }else{
+        var id = parseInt(req.params.id);
+        var index = DB.games.findIndex(g => g.id == id);
+
+        if(index == -1){
+            res.sendStatus(404);
+        }else{
+            DB.games.splice(index,1);
+            res.sendStatus(200);
+        }
+
+     }
+});
+
+app.put('/game/:id',(req,res)=>{
+
+    if(isNaN(req.params.id)){
+        res.statusCode(400)
+    }else{
+
+        var id = parseInt(req.params.id);
+        var game = DB.games.find(g => g.id == id);
+
+        if(game != undefined){
+
+             var {title,price,year} = req.body;
+            
+                if(title != undefined){
+                
+                    game.title = title;
+                }
+
+                if(year != undefined){
+                
+                    game.year = year;
+                }
+
+                if(game.price != undefined){
+                
+                    game.price = price;
+                }
+
+                res.sendStatus(200);
+        }else{
+             
+            res.sendStatus(404);
+        }
+
+    }
+
+});
+
+
 
 
 app.listen(8000,()=>{
